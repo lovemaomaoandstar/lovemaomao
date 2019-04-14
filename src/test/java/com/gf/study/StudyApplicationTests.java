@@ -5,6 +5,8 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.sql.DriverManager;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class StudyApplicationTests {
@@ -13,8 +15,4 @@ public class StudyApplicationTests {
     public void contextLoads() {
     }
 
-    @Test
-    public void testProject(){
-
-    }
 }
