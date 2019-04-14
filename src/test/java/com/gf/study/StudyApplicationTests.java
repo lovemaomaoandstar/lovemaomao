@@ -13,4 +13,8 @@ public class StudyApplicationTests {
     public void contextLoads() {
     }
 
+    @Test
+    public void testProject(){
+
+    }
 }
