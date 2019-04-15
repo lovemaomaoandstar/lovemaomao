@@ -2,6 +2,14 @@ package com.zs.study.day.dayOne;
 
 import lombok.Data;
 
+/**
+* @Description:    建造者模式
+* @Author:         zs
+* @CreateDate:     2019/4/15 12:42
+* @UpdateRemark:   修改内容
+* @Version:        1.0
+ *  多属性类使用构造器Model
+*/
 @Data
 public class BuilderMode {
     private final int pizzaSize;
@@ -26,9 +34,9 @@ public class BuilderMode {
         }
     }
 
-    private BuilderMode(Builder bulider){
-        this.pizzaColor = bulider.pizzaColor;
-        this.pizzaPrice= bulider.pizzaPrice;
-        this.pizzaSize = bulider.pizzaSize;
+    private BuilderMode(Builder builder){
+        this.pizzaColor = builder.pizzaColor;
+        this.pizzaPrice= builder.pizzaPrice;
+        this.pizzaSize = builder.pizzaSize;
     }
 }
