@@ -8,7 +8,7 @@ import java.sql.DriverManager;
 
 @Data
 @Repository
-public class CreateDTO {
+public class CreateDTO<T> {
     public void getConnection(){
     }
 }
