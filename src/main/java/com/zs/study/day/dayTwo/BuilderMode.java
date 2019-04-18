@@ -4,12 +4,13 @@ import lombok.Data;
 
 /**
  * 如果类的构造器或者静态工厂中具有多个参数时，BUILDER模式较好用
- * TODO 2.遇到多个构造参数时，要考虑使用构建器
+ * 2.遇到多个构造参数时，要考虑使用构建器
  * 1>重叠构造器在属性过多时，不好用
  * 2>JavaBeans 使用set属性的模式，使得把类做的不可变变成不可实现
  * 3>更易于阅读 模拟了具名的可选参数
  * 4>适用于类层次结构
- */@Data
+ */
+@Data
 public class BuilderMode {
     /**
      * 本来属于重叠构造器
@@ -32,14 +33,13 @@ public class BuilderMode {
         }
 
         public BuilderMode builder(){
+
             return new BuilderMode(this);
         }
     }
     private BuilderMode(Builder builder){
-        this.pizzaColor=builder.pizzaColor;
-        this.pizzaPrice=builder.pizzaPrice;
-        this.pizzaSize=builder.pizzaSize;
+        pizzaSize = builder.pizzaSize;
+        pizzaColor=builder.pizzaColor;
+        pizzaPrice=builder.pizzaPrice;
     }
-
-
 }

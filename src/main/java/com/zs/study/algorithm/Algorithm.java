@@ -24,10 +24,10 @@ public interface Algorithm {
     void mergeSort(int[] array);
 
     //桶排序
-    void bckerSort();
+    void barrelSort(int[] array);
 
     //基数排序
-    void radixSort();
+    void radixSort(int[] array);
 
     //剪枝算法
     void pruning();

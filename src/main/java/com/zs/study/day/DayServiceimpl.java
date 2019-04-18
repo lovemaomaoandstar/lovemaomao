@@ -1,4 +1,4 @@
-package com.zs.study;
+package com.zs.study.day;
 
 import com.zs.study.day.dayTwo.BuilderMode;
 import com.zs.study.day.dayTwo.NyPizza;
@@ -6,10 +6,9 @@ import com.zs.study.day.dayTwo.Pizza;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ZhangStestimpl implements ZhangStestService{
+public class DayServiceimpl implements DayService{
     @Override
     public void dayOne(){
-
     }
 
     @Override
@@ -21,6 +20,4 @@ public class ZhangStestimpl implements ZhangStestService{
         NyPizza pizza = new NyPizza.Builder(NyPizza.Size.SMALL)
                 .addTopping(Pizza.Topping.SAUSAGE).addTopping(Pizza.Topping.MUSHROOM).bulid();
     }
-
-
 }

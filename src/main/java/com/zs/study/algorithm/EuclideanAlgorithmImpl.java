@@ -5,9 +5,15 @@ package com.zs.study.algorithm;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import javax.validation.constraints.Max;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 @Slf4j
 @Service
 public class EuclideanAlgorithmImpl implements Algorithm{
+    // 算法
     public static int num = 0;
     public static int[] array_binary = {1,5,10,12,18,25,27,29,32,45};
     public static int[] array_bubble = {5,13,4,16,9,18,2,17,66,103,84,2};
@@ -186,23 +192,96 @@ public class EuclideanAlgorithmImpl implements Algorithm{
     };
 
     @Override
-    public void bckerSort() {
+    public void barrelSort(int[] array) {
+        int max=0;
+        int min=0;
+        //寻找数组中最大值以及最小值
+        //确定范围域
+        for(int i=0;i<array.length;i++){
+            max = Math.max(max,array[0]);
+            min = Math.min(min,array[0]);
+        }
+        //将在范围域中的值，分成多块区域
+        int num = (max-min)/array.length + 1;
+        List<ArrayList<Integer>> allList = new ArrayList<ArrayList<Integer>>();
+        //新建多块list来存放多块区域中的值
+        for(int i=0;i<num;i++){
+            allList.add(new ArrayList<Integer>());
+        }
+        //将不同区域的数字 放进不同的桶里进行排序
+        for(int i=0;i<array.length;i++){
 
+        }
+        //对每个桶里的元素进行排序
+        for(int i=0;i<num;i++){
+            Collections.sort(allList.get(i));
+        }
+        //合并
+        //merge();
     }
 
     @Override
-    public void radixSort() {
+    public void radixSort(int[] array) {
+//        将所有待比较数值（正整数）统一为同样的数位长度，数位较短的数前面补零。然后，从最低位
+//        开始，依次进行一次排序。这样从最低位排序一直到最高位排序完成以后,数列就变成一个有序序
+//        列。
+        //首先确定排序的趟数;
+        int max=array[0];
+        for(int i=1;i<array.length;i++){
+            if(array[i]>max){
+                max=array[i];
+            }
+        }
+        int time=0;
+        //判断位数;
+        while(max>0){
+            max/=10;
+            time++;
+        }
+            //建立 10 个队列;
+        List<ArrayList> queue=new ArrayList<ArrayList>();
+        for(int i=0;i<10;i++){
+            ArrayList<Integer>queue1=new ArrayList<Integer>();
+            queue.add(queue1);
+        }
+            //进行 time 次分配和收集;
+        for(int i=0;i<time;i++){
+        //分配数组元素;
+            for(int j=0;j<array.length;j++){
+                    //得到数字的第 time+1 位数;
+                int x=array[j]%(int)Math.pow(10,i+1)/(int)Math.pow(10, i);
+                ArrayList<Integer>queue2=queue.get(x);
+                queue2.add(array[j]);
+                queue.set(x, queue2);
+            }
+            int count=0;//元素计数器;
+                //收集队列元素;
+            for(int k=0;k<10;k++){
+                while(queue.get(k).size()>0){
+                    ArrayList<Integer>queue3=queue.get(k);
+                    array[count]=queue3.get(0);
+                    queue3.remove(0);
+                    count++;
+                }
+            }
+        }
 
     }
 
     @Override
     public void pruning() {
-
+//        在搜索算法中优化中，剪枝，就是通过某种判断，避免一些不必要的遍历过程，形象的说，就是
+//        剪去了搜索树中的某些“枝条”，故称剪枝。应用剪枝优化的核心问题是设计剪枝判断方法，即
+//        确定哪些枝条应当舍弃，哪些枝条应当保留的方法。
     }
 
     @Override
     public void backMoone() {
-
+//        回溯算法实际上一个类似枚举的搜索尝试过程，主要是在搜索尝试过程中寻找问题的解，当发现
+//        已不满足求解条件时，就“回溯”返回，尝试别的路径
     }
+//    从某顶点出发，沿图的边到达另一顶点所经过的路径中，各边上权值之和最小的一条路径叫做最
+//    短路径。解决最短路的问题有以下算法，Dijkstra 算法，Bellman-Ford 算法，Floyd 算法和 SPFA
+//            算法等
 
 }
