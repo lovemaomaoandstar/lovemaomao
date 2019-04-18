@@ -1,7 +1,7 @@
 package com.zs.study.day.day3;
 
 /**
- * TODO 加备注
+ * 3.通过私有构造器强化singleton
  */
 
 public class Singleton {

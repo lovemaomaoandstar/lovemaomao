@@ -35,7 +35,11 @@ public class BuilderMode {
             return new BuilderMode(this);
         }
     }
-
-
+    private BuilderMode(Builder builder){
+        this.pizzaColor=builder.pizzaColor;
+        this.pizzaPrice=builder.pizzaPrice;
+        this.pizzaSize=builder.pizzaSize;
     }
+
+
 }
